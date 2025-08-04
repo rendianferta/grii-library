@@ -6,4 +6,4 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from backend import create_app
 
-app = create_app()
+application = create_app()
