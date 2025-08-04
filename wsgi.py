@@ -1,4 +1,4 @@
-# wsgi.py
-from backend import create_app
+# backend/wsgi.py
+from __init__ import create_app
 
 app = create_app()
