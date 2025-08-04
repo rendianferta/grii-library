@@ -8,7 +8,8 @@ class Config:
     # gunakan string yang sangat panjang dan acak seperti di atas untuk pengembangan.
     # Untuk produksi, ini harus disetel sebagai environment variable yang sebenarnya.
 
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://usergrii:Wwinter060906@172.18.9.212/griiLibrarydb'
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # --- PENTING: KONFIGURASI COOKIE SESI UNTUK PENGEMBANGAN CROSS-ORIGIN ---
