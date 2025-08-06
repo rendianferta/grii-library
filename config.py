@@ -25,3 +25,5 @@ class Config:
 
     # Opsional: Jika Anda ingin cookie berlaku lebih lama (misal 30 hari)
     # PERMANENT_SESSION_LIFETIME = timedelta(days=30)
+
+    SITE_URL = "http://env-2707298.user.cloudjkt02.com"
