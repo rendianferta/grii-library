@@ -230,7 +230,7 @@ def upload_file():
         
         file.save(file_path)       
         
-        file_url = f"/static/uploads/{filename}"
+        file_url = f"/statictes/uploads/{filename}"
        
         return jsonify({"message": "File berhasil diupload.", "file_url": file_url}), 200
     else:
