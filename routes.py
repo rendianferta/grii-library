@@ -1,6 +1,6 @@
 # backend/routes.py
 import os # Pastikan ini diimpor
-from flask import Blueprint, jsonify, request, url_for, current_app, Response # Pastikan ini lengkap
+from flask import Blueprint, jsonify, request, make_response, current_app, Response # Pastikan ini lengkap
 from urllib.parse import urljoin
 from werkzeug.utils import secure_filename # Pastikan ini diimpor
 from . import db
@@ -231,8 +231,15 @@ def upload_file():
         file.save(file_path)       
         
         file_url = f"/statictes/uploads/{filename}"
+        payload = {"message":"File berhasil diupload.", "file_url": file_url, "marker": "upload-debug-XYZ"}
+        resp = make_response(jsonify(payload), 200)
+        resp.headers['X-Debug-From'] = 'upload-debug-XYZ'
+
+
+        #file_url = f"/statictes/uploads/{filename}"
        
-        return jsonify({"message": "File berhasil diupload.", "file_url": file_url}), 200
+        #return jsonify({"message": "File berhasil diupload.", "file_url": file_url}), 200
+        return resp
     else:
         return jsonify({"message": "Tipe file tidak diizinkan. Hanya gambar (png, jpg, jpeg, gif).", "file_name": file.filename}), 400
 
