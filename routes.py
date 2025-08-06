@@ -228,11 +228,10 @@ def upload_file():
         filename = secure_filename(file.filename)
         file_path = os.path.join(current_app.root_path, current_app.config['UPLOAD_FOLDER'], filename)
         
-        file.save(file_path)
-        relative = url_for('static', filename=f'uploads/{filename}', _external=False) 
-        base = current_app.config.get('SITE_URL', request.url_root)
-        file_url = urljoin(base.rstrip('/') + '/', relative.lstrip('/'))
-
+        file.save(file_path)       
+        
+        file_url = url_for('static', filename=f'uploads/{filename}', _external=False)
+       
         return jsonify({"message": "File berhasil diupload.", "file_url": file_url}), 200
     else:
         return jsonify({"message": "Tipe file tidak diizinkan. Hanya gambar (png, jpg, jpeg, gif).", "file_name": file.filename}), 400
